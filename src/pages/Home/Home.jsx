@@ -1,10 +1,11 @@
 import React from 'react';
+import { Container } from "../../styles/General";
 
 const Home = () => {
   return (
-      <div>
+      <Container>
         Home page will be here!
-      </div>
+      </Container>
   );
 };
 

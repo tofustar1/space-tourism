@@ -4,6 +4,16 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 :root {
   /* Colors */
   --color-dark: hsl(230, 35%, 7%);
@@ -34,4 +44,31 @@ body {
   font-family: var(--family-main);
   color: var(--color-white);
   font-weight: var(--fw-regular);
+}
+
+.bg-wrapper {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-position: center;
+}
+
+.home {
+  background-image: url("assets/images/home/bg-home-tablet.jpg");
+
+  @media (min-width: 1440px) {
+    background-image: url("assets/images/home/bg-home-desktop.jpg");
+  }
+}
+
+.destination {
+  background-image: url("assets/images/destination/bg-destination-desktop.jpg");
+}
+
+.crew {
+  background-image: url("assets/images/crew/bg-crew-desktop.jpg");
+}
+
+.technology {
+  background-image: url("assets/images/technology/bg-technology-desktop.jpg");
 }
