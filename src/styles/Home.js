@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {Description, Slogan} from "./General";
 
 export const HomeWrapper = styled.div`
     display: flex;
@@ -20,16 +21,8 @@ export const HomeTextInner = styled.div`
     text-align: center;
 `;
 
-export const Slogan = styled.span`
-    font-family: var(--family-3);
-    font-size: 16px;
+export const HomeSlogan = styled(Slogan)`
     color: var(--color-light-blue);
-    text-transform: uppercase;
-    letter-spacing: 0.17em;
-    
-    @media (min-width: 768px) {
-        font-size: 20px;
-    }
 `;
 
 export const HomeTitle = styled.h1`
@@ -37,39 +30,32 @@ export const HomeTitle = styled.h1`
     font-size: 80px;
     text-transform: uppercase;
     line-height: 125%;
-    margin: 16px 0;
+    margin: 0 0 16px;
     
     @media (min-width: 768px) {
         font-size: var(--fs-heading-1);
         line-height: 100%;
-        margin: 24px 0;
+        margin: 0 0 24px;
     }
 `;
 
-export const HomeDescription = styled.p`
-    font-size: 15px;
-    line-height: 167%;
-    color: var(--color-light-blue);
-    text-align: center;
+export const HomeDescription = styled(Description)`
     margin-bottom: 81px;
     max-width: 418px;
 
     @media (min-width: 768px) {
-        font-size: 16px;
-        line-height: 175%;
         margin-bottom: 156px;
     }
 
     @media (min-width: 1440px) {
-        font-size: 18px;
-        line-height: 178%;
         margin-bottom: 0;
         max-width: 450px;
-        text-align: left;
     }
 `;
 
-export const HomeButton = styled.button`
+export const HomeButton = styled.button.attrs({
+  type: 'button'
+})`
     font-family: var(--family-2);
     width: 150px;
     height: 150px;
