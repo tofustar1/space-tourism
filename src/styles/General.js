@@ -29,7 +29,13 @@ export const Slogan = styled.span`
     margin-bottom: 32px;
     
     @media (min-width: 768px) {
+        margin-bottom: 60px;
         font-size: 20px;
+    }
+
+    @media (min-width: 1440px) {
+        font-size: var(--fs-subheading-1);
+        margin-bottom: 97px;
     }
 `;
 

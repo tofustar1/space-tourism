@@ -8,7 +8,7 @@ export const HomeWrapper = styled.div`
     margin-top: 24px;
 
     @media (min-width: 768px) {
-        margin-top: 106px;
+        margin-top: 66px;
     }
     @media (min-width: 1440px) {
         flex-direction: row;
@@ -19,6 +19,10 @@ export const HomeWrapper = styled.div`
 
 export const HomeTextInner = styled.div`
     text-align: center;
+
+    @media (min-width: 1440px) {
+        margin-left: 110px;
+    }
 `;
 
 export const HomeSlogan = styled(Slogan)`
