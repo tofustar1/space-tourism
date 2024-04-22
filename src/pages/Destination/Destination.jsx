@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, NumberOfTheSlogan } from "../../styles/General";
 import {
   DDescription,
@@ -15,9 +15,16 @@ import {
   DValue,
   DWrapper
 } from "../../styles/Destination";
-import ImgMoon from '../../assets/images/destination/image-moon.webp';
+import data from '../../data.json';
 
 const Destination = () => {
+  const [destination, setDestination] = useState(data.destinations[0]);
+
+  const onClickHandler = (event) => {
+    const selectedDestination = data.destinations.find(dest => dest.name === event.target.innerHTML);
+    setDestination(selectedDestination);
+  };
+
   return (
       <Container>
         <DWrapper>
@@ -26,31 +33,37 @@ const Destination = () => {
               <NumberOfTheSlogan>01</NumberOfTheSlogan>
               Pick your destination
             </DSlogan>
-            <DImage src={ImgMoon}/>
+            <DImage src={require(`../../${destination.image}`)}/>
           </DInner>
           <DInner>
             <DTabGroup>
-              <DInput defaultChecked id="moon"/>
-              <DLabel htmlFor="moon">Moon</DLabel>
-              <DInput id="mars"/>
-              <DLabel htmlFor="mars">Mars</DLabel>
-              <DInput id="europa"/>
-              <DLabel htmlFor="europa">Europa</DLabel>
-              <DInput id="titan"/>
-              <DLabel htmlFor="titan">Titan</DLabel>
+              {
+                data.destinations.map((dest, index) => (
+                    <React.Fragment key={dest.name}>
+                      <DInput
+                          id={dest.name.toLowerCase()}
+                          defaultChecked={!index}
+                      />
+                      <DLabel
+                          htmlFor={dest.name.toLowerCase()}
+                          onClick={(event) => onClickHandler(event)}
+                      >
+                        {dest.name}
+                      </DLabel>
+                    </React.Fragment>
+                ))
+              }
             </DTabGroup>
-            <DTitle>Moon</DTitle>
-            <DDescription>See our planet as you’ve never seen it before. A perfect relaxing trip away to help
-              regain perspective and come back refreshed. While you’re there, take in some history by visiting the Luna 2
-              and Apollo 11 landing sites.</DDescription>
+            <DTitle>{destination.name}</DTitle>
+            <DDescription>{destination.description}</DDescription>
             <DInfoBlock>
               <DInfoElement>
                 <DParameter>Avg. distance</DParameter>
-                <DValue>384,400 km</DValue>
+                <DValue>{destination.distance}</DValue>
               </DInfoElement>
               <DInfoElement>
                 <DParameter>Est. travel time</DParameter>
-                <DValue>3 days</DValue>
+                <DValue>{destination.travel}</DValue>
               </DInfoElement>
             </DInfoBlock>
           </DInner>
