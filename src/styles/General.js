@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+export const devices = {
+  tablet: `min-width: 768px`,
+  desktop: `min-width: 1440px`,
+};
+
 export const Container = styled.div`
     max-width: 1440px;
     margin: 0 auto;
@@ -21,7 +26,7 @@ export const BasicFlexWrapper = styled.div`
 `;
 
 export const Slogan = styled.span`
-    font-family: var(--family-3);
+    font-family: var(--family-3), sans-serif;
     display: inline-block;
     font-size: 16px;
     text-transform: uppercase;
@@ -31,6 +36,7 @@ export const Slogan = styled.span`
     @media (min-width: 768px) {
         margin-bottom: 60px;
         font-size: 20px;
+        align-self: start;
     }
 
     @media (min-width: 1440px) {

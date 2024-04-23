@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, NumberOfTheSlogan } from "../../styles/General";
+import { Container, NumberOfTheSlogan, Slogan } from "../../styles/General";
 import {
   DDescription,
   DImage,
@@ -9,7 +9,6 @@ import {
   DInput,
   DLabel,
   DParameter,
-  DSlogan,
   DTabGroup,
   DTitle,
   DValue,
@@ -29,10 +28,10 @@ const Destination = () => {
       <Container>
         <DWrapper>
           <DInner>
-            <DSlogan>
+            <Slogan>
               <NumberOfTheSlogan>01</NumberOfTheSlogan>
               Pick your destination
-            </DSlogan>
+            </Slogan>
             <DImage src={require(`../../${destination.image}`)}/>
           </DInner>
           <DInner>

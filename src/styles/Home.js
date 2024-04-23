@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Description, Slogan} from "./General";
+import { Description, Slogan } from "./General";
 
 export const HomeWrapper = styled.div`
     display: flex;
@@ -30,9 +30,8 @@ export const HomeSlogan = styled(Slogan)`
 `;
 
 export const HomeTitle = styled.h1`
-    font-family: var(--family-2);
+    font-family: var(--family-2), serif;
     font-size: 80px;
-    text-transform: uppercase;
     line-height: 125%;
     margin: 0 0 16px;
     
@@ -60,7 +59,7 @@ export const HomeDescription = styled(Description)`
 export const HomeButton = styled.button.attrs({
   type: 'button'
 })`
-    font-family: var(--family-2);
+    font-family: var(--family-2), serif;
     width: 150px;
     height: 150px;
     border-radius: 50%;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Description, Slogan } from "./General";
+import { Description } from "./General";
 
 export const DWrapper = styled.div`
     
@@ -58,7 +58,7 @@ export const DTabGroup = styled.div`
 `;
 
 export const DLabel = styled.label.attrs({})`
-    font-family: var(--family-3);
+    font-family: var(--family-3), sans-serif;
     margin-right: 26px;
     font-size: 14px;
     text-transform: uppercase;
@@ -85,11 +85,14 @@ export const DInput = styled.input.attrs({
         color: var(--color-white);
         border-bottom: 3px solid #fff;
     }
+    
+    &:hover + ${DLabel} {
+        border-bottom: 3px solid #8C8D93;
+    }
 `;
 export const DTitle = styled.h1`
-    font-family: var(--family-2);
+    font-family: var(--family-2), serif;
     font-size: var(--fs-heading-3);
-    text-transform: uppercase;
     margin-bottom: 15px;
 
     @media (min-width: 768px) {
@@ -146,7 +149,7 @@ export const DInfoElement = styled.div`
 `;
 
 export const DParameter = styled.span`
-    font-family: var(--family-3);
+    font-family: var(--family-3), sans-serif;
     font-size: 14px;
     letter-spacing: 0.17em;
     text-transform: uppercase;
@@ -155,19 +158,13 @@ export const DParameter = styled.span`
 `;
 
 export const DValue = styled.span`
-    font-family: var(--family-2);
+    font-family: var(--family-2), serif;
     font-size: var(--fs-subheading-1);
     text-transform: uppercase;
     margin-bottom: 32px;
 
     @media (min-width: 768px) {
         margin: 0;
-    }
-`;
-
-export const DSlogan = styled(Slogan)`
-    @media (min-width: 768px) {
-        align-self: start;
     }
 `;
 
