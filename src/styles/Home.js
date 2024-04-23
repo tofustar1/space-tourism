@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Description, Slogan } from "./General";
+import { Description, devices as device, Slogan } from "./General";
 
 export const HomeWrapper = styled.div`
     display: flex;
@@ -20,7 +20,7 @@ export const HomeWrapper = styled.div`
 export const HomeTextInner = styled.div`
     text-align: center;
 
-    @media (min-width: 1440px) {
+    @media (${device.desktop}) {
         margin-left: 110px;
     }
 `;
@@ -35,7 +35,7 @@ export const HomeTitle = styled.h1`
     line-height: 125%;
     margin: 0 0 16px;
     
-    @media (min-width: 768px) {
+    @media (${device.tablet}) {
         font-size: var(--fs-heading-1);
         line-height: 100%;
         margin: 0 0 24px;
@@ -46,11 +46,11 @@ export const HomeDescription = styled(Description)`
     margin-bottom: 81px;
     max-width: 418px;
 
-    @media (min-width: 768px) {
+    @media (${device.tablet}) {
         margin-bottom: 156px;
     }
 
-    @media (min-width: 1440px) {
+    @media (${device.desktop}) {
         margin-bottom: 0;
         max-width: 450px;
     }
@@ -77,7 +77,7 @@ export const HomeButton = styled.button.attrs({
         box-shadow: 0 0 0 48px rgba(255, 255, 255, 0.15);
     }
 
-    @media (min-width: 768px) {
+    @media (${device.tablet}) {
         width: 242px;
         height: 242px;
         font-size: 32px;
@@ -87,7 +87,7 @@ export const HomeButton = styled.button.attrs({
         }
     }
 
-    @media (min-width: 1440px) {
+    @media (${device.desktop}) {
         width: 270px;
         height: 270px;
 

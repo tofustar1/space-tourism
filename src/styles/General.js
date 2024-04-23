@@ -33,13 +33,13 @@ export const Slogan = styled.span`
     letter-spacing: 0.17em;
     margin-bottom: 32px;
     
-    @media (min-width: 768px) {
+    @media (${devices.tablet}) {
         margin-bottom: 60px;
         font-size: 20px;
         align-self: start;
     }
 
-    @media (min-width: 1440px) {
+    @media (${devices.desktop}) {
         font-size: var(--fs-subheading-1);
         margin-bottom: 97px;
     }
@@ -57,12 +57,12 @@ export const Description = styled.p`
     color: var(--color-light-blue);
     text-align: center;
 
-    @media (min-width: 768px) {
+    @media (${devices.tablet}) {
         font-size: 16px;
         line-height: 175%;
     }
 
-    @media (min-width: 1440px) {
+    @media (${devices.desktop}) {
         font-size: 18px;
         line-height: 178%;
         text-align: left;

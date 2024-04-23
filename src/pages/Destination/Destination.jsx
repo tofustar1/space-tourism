@@ -1,72 +1,72 @@
 import React, { useState } from 'react';
 import { Container, NumberOfTheSlogan, Slogan } from "../../styles/General";
 import {
-  DDescription,
-  DImage,
-  DInfoBlock,
-  DInfoElement,
-  DInner,
-  DInput,
-  DLabel,
-  DParameter,
-  DTabGroup,
-  DTitle,
+  DestDescription,
+  DestImage,
+  DestInfoBlock,
+  DestInfoElement,
+  DestInner,
+  DestInput,
+  DestLabel,
+  DestParametr,
+  DestTabGroup,
+  DestTitle,
   DValue,
-  DWrapper
+  DestWrapper
 } from "../../styles/Destination";
 import data from '../../data.json';
 
 const Destination = () => {
   const [destination, setDestination] = useState(data.destinations[0]);
 
-  const onClickHandler = (event) => {
+  const onClickHandler = event => {
     const selectedDestination = data.destinations.find(dest => dest.name === event.target.innerHTML);
     setDestination(selectedDestination);
   };
 
   return (
       <Container>
-        <DWrapper>
-          <DInner>
+        <DestWrapper>
+          <DestInner>
             <Slogan>
               <NumberOfTheSlogan>01</NumberOfTheSlogan>
               Pick your destination
             </Slogan>
-            <DImage src={require(`../../${destination.image}`)}/>
-          </DInner>
-          <DInner>
-            <DTabGroup>
+            <DestImage src={require(`../../${destination.image}`)}/>
+          </DestInner>
+          <DestInner>
+            <DestTabGroup>
               {
                 data.destinations.map((dest, index) => (
                     <React.Fragment key={dest.name}>
-                      <DInput
-                          id={dest.name.toLowerCase()}
+                      <DestInput
+                          id={dest.name}
                           defaultChecked={!index}
                       />
-                      <DLabel
-                          htmlFor={dest.name.toLowerCase()}
-                          onClick={(event) => onClickHandler(event)}
+                      <DestLabel
+                          htmlFor={dest.name}
+                          onClick={event => onClickHandler(event)}
                       >
                         {dest.name}
-                      </DLabel>
+                      </DestLabel>
                     </React.Fragment>
                 ))
               }
-            </DTabGroup>
-            <DTitle>{destination.name}</DTitle>
-            <DDescription>{destination.description}</DDescription>
-            <DInfoBlock>
-              <DInfoElement>
-                <DParameter>Avg. distance</DParameter>
+            </DestTabGroup>
+            <DestTitle>{destination.name}</DestTitle>
+            <DestDescription>{destination.description}</DestDescription>
+            <DestInfoBlock>
+              <DestInfoElement>
+                <DestParametr>Avg. distance</DestParametr>
                 <DValue>{destination.distance}</DValue>
-              </DInfoElement>
-              <DInfoElement>
-                <DParameter>Est. travel time</DParameter>
+              </DestInfoElement>
+              <DestInfoElement>
+                <DestParametr>Est. travel time</DestParametr>
                 <DValue>{destination.travel}</DValue>
-              </DInfoElement>
-            </DInfoBlock>
-          </DInner>
-        </DWrapper>
+              </DestInfoElement>
+            </DestInfoBlock>
+          </DestInner>
+        </DestWrapper>
       </Container>
   );
 };

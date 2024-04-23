@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import { Description } from "./General";
+import { Description, devices as device } from "./General";
 
-export const DWrapper = styled.div`
+export const DestWrapper = styled.div`
     
-    @media (min-width: 768px) {
+    @media (${device.tablet}) {
         margin-top: 40px;
     }
     
-    @media (min-width: 1440px) {
+    @media (${device.desktop}) {
         display: flex;
         margin-left: 110px;
         justify-content: space-between;
@@ -16,17 +16,17 @@ export const DWrapper = styled.div`
     }
 `;
 
-export const DInner = styled.div`
+export const DestInner = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    @media (min-width: 1440px) {
+    @media (${device.desktop}) {
         align-items: start;
     }
 `;
 
-export const DImage = styled.img.attrs({
+export const DestImage = styled.img.attrs({
   alt: 'planet',
 })`
     max-width: 170px;
@@ -34,30 +34,30 @@ export const DImage = styled.img.attrs({
     display: block;
     margin-bottom: 26px;
 
-    @media (min-width: 768px) {
+    @media (${device.tablet}) {
         margin-bottom: 53px;
         max-width: 300px;
     }
 
-    @media (min-width: 1440px) {
+    @media (${device.desktop}) {
         margin: 0 0 0 65px;
         max-width: 445px;
     }
 `;
 
-export const DTabGroup = styled.div`
+export const DestTabGroup = styled.div`
     margin-bottom: 20px;
 
-    @media (min-width: 768px) {
+    @media (${device.tablet}) {
         margin-bottom: 32px;
     }
 
-    @media (min-width: 1440px) {
+    @media (${device.desktop}) {
         margin-bottom: 44px;
     }
 `;
 
-export const DLabel = styled.label.attrs({})`
+export const DestLabel = styled.label.attrs({})`
     font-family: var(--family-3), sans-serif;
     margin-right: 26px;
     font-size: 14px;
@@ -70,85 +70,85 @@ export const DLabel = styled.label.attrs({})`
         margin-right: 0;
     }
 
-    @media (min-width: 768px) {
+    @media (${device.tablet}) {
         font-size: 16px;
     }
 `;
 
-export const DInput = styled.input.attrs({
+export const DestInput = styled.input.attrs({
   name: 'planet',
   type: 'radio'
 })`
     display: none;
 
-    &:checked + ${DLabel} {
+    &:checked + ${DestLabel} {
         color: var(--color-white);
         border-bottom: 3px solid #fff;
     }
     
-    &:hover + ${DLabel} {
+    &:hover + ${DestLabel} {
         border-bottom: 3px solid #8C8D93;
     }
 `;
-export const DTitle = styled.h1`
+
+export const DestTitle = styled.h1`
     font-family: var(--family-2), serif;
     font-size: var(--fs-heading-3);
     margin-bottom: 15px;
 
-    @media (min-width: 768px) {
+    @media (${device.tablet}) {
         font-size: 80px;
         margin-bottom: 22px;
     }
 
-    @media (min-width: 1440px) {
+    @media (${device.desktop}) {
         font-size: var(--fs-heading-2);
         margin-bottom: 28px;
     } 
 `;
 
-export const DDescription = styled(Description)`
+export const DestDescription = styled(Description)`
     border-bottom: 1px solid #383b4b;
     padding-bottom: 32px;
     margin-bottom: 32px;
     max-width: 573px;
     
-
-    @media (min-width: 768px) {
+    @media (${device.tablet}) {
         padding-bottom: 49px;
     }
 
-    @media (min-width: 1440px) {
+    @media (${device.desktop}) {
         max-width: 444px;
         padding-bottom: 54px;
     }
 `;
 
-export const DInfoBlock = styled.div`
+export const DestInfoBlock = styled.div`
 
-    @media (min-width: 768px) {
+    @media (${device.tablet}) {
         display: flex;
         align-self: stretch;
         justify-content: space-evenly;
     }
 
-    @media (min-width: 1440px) {
+    @media (${device.desktop}) {
         align-self: start;
         justify-content: start;
     }
 `;
 
-export const DInfoElement = styled.div`
+export const DestInfoElement = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    @media (min-width: 1440px) {
+    @media (${device.desktop}) {
         align-items: start;
         margin-right: 80px;
     }
 `;
 
-export const DParameter = styled.span`
+export const DestParametr = styled.span`
     font-family: var(--family-3), sans-serif;
     font-size: 14px;
     letter-spacing: 0.17em;
@@ -163,7 +163,7 @@ export const DValue = styled.span`
     text-transform: uppercase;
     margin-bottom: 32px;
 
-    @media (min-width: 768px) {
+    @media (${device.tablet}) {
         margin: 0;
     }
 `;
