@@ -1,5 +1,5 @@
-import React from 'react';
-import {Container, NumberOfTheSlogan, Slogan} from "../../styles/General";
+import React, { useState } from 'react';
+import { Container, NumberOfTheSlogan, Slogan } from "../../styles/General";
 import {
   CrewDescription,
   CrewImage,
@@ -10,9 +10,12 @@ import {
   CrewPosition,
   CrewTabGroup
 } from "../../styles/Crew";
-import imgCrew from "../../assets/images/crew/image-anousheh-ansari.webp";
+import data from "../../data.json";
 
 const Crew = () => {
+  const [crew, setCrew] = useState(data.crew[0]);
+  const onClickHandler = (index) => setCrew(data.crew[index]);
+
   return (
       <Container>
         <CrewInner>
@@ -21,21 +24,27 @@ const Crew = () => {
             Meet your crew
           </Slogan>
           <CrewImageWrapper>
-            <CrewImage src={imgCrew}/>
+            <CrewImage src={require(`../../${crew.image}`)}/>
           </CrewImageWrapper>
+          <CrewPosition>{crew.role}</CrewPosition>
+          <CrewName>{crew.name}</CrewName>
+          <CrewDescription>{crew.bio}</CrewDescription>
           <CrewTabGroup>
-            <CrewInput defaultChecked={true}/>
-            <CrewLabel />
-            <CrewInput/>
-            <CrewLabel />
-            <CrewInput />
-            <CrewLabel />
-            <CrewInput />
-            <CrewLabel />
+            {
+              data.crew.map((person, index) => (
+                  <React.Fragment key={person.name}>
+                    <CrewInput
+                      id={person.name}
+                      defaultChecked={!index}
+                    />
+                    <CrewLabel
+                      htmlFor={person.name}
+                      onClick={() => onClickHandler(index)}
+                    />
+                  </React.Fragment>
+              ))
+            }
           </CrewTabGroup>
-          <CrewPosition>Commander</CrewPosition>
-          <CrewName>Dmitrii Belovodskii</CrewName>
-          <CrewDescription>Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2.</CrewDescription>
         </CrewInner>
       </Container>
   );

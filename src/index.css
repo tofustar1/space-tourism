@@ -61,6 +61,7 @@ body {
   background-repeat: no-repeat;
   height: 100vh;
   background-position: center;
+  overflow-y: hidden;
 }
 
 .home {

@@ -12,6 +12,7 @@ export const CrewInner = styled.div`
 
     @media (${device.desktop}) {
         margin-top: 76px;
+        display: block;
     }
 `;
 
@@ -19,6 +20,7 @@ export const CrewImageWrapper = styled.div`
     border-bottom: 1px solid #383b4b;
     margin: 32px 0;
     align-self: stretch;
+    order: 1;
     
     @media (${device.tablet}) {
         order: 2;
@@ -34,22 +36,26 @@ export const CrewImageWrapper = styled.div`
 export const CrewImage = styled.img.attrs({
   alt: 'crew',
 })`
-    max-width: 226px;
-    height: auto;
+    height: 226px;
     display: block;
     margin: 0 auto;
     
     @media (${device.tablet}) {
-        max-width: 480px;
+        height: 532px;
+    }
+
+    @media (${device.desktop}) {
+        height: auto;
     }
 `;
 
 export const CrewTabGroup = styled.div`
     margin-bottom: 32px;
+    order: 2;
 
     @media (${device.tablet}) {
-        order: 1;
         margin: 40px 0;
+        order: 0;
     }
 `;
 
@@ -64,6 +70,12 @@ export const CrewLabel = styled.label`
     
     &:nth-child(8) {
         margin-right: 0;
+    }
+
+    @media (${device.desktop}) {
+        width: 15px;
+        height: 15px;
+        margin-right: 24px;
     }
 `;
 
@@ -83,9 +95,16 @@ export const CrewPosition = styled.h2`
     opacity: 0.5;
     margin-bottom: 8px;
     font-size: 16px;
+    order: 3;
 
     @media (${device.tablet}) {
         font-size: 24px;
+        order: 0;
+    }
+
+    @media (${device.desktop}) {
+        font-size: var(--fs-heading-4);
+        margin: 57px 0 15px;
     }
 `;
 
@@ -93,12 +112,29 @@ export const CrewName = styled.h1`
     font-family: var(--family-2), serif;
     margin-bottom: 16px;
     font-size: 24px;
+    order: 4;
 
     @media (${device.tablet}) {
         font-size: 40px;
+        order: 0;
+    }
+
+    @media (${device.desktop}) {
+        font-size: var(--fs-heading-3);
+        margin-bottom: 27px;
     }
 `;
 
 export const CrewDescription = styled(Description)`
     max-width: 592px;
+    order: 4;
+
+    @media (${device.tablet}) {
+        order: 0;
+    }
+
+    @media (${device.desktop}) {
+        margin-bottom: 120px;
+        max-width: 444px;
+    }
 `;
