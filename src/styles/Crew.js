@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Description, devices as device} from "./General";
+import { Description, devices as device } from "./General";
 
 export const CrewInner = styled.div`
     display: flex;
@@ -11,8 +11,8 @@ export const CrewInner = styled.div`
     }
 
     @media (${device.desktop}) {
-        margin-top: 76px;
         display: block;
+        margin: 76px 0 0 110px;
     }
 `;
 
@@ -63,7 +63,7 @@ export const CrewLabel = styled.label`
     display: inline-block;
     width: 10px;
     height: 10px;
-    background: #979797;
+    background: rgba(255, 255, 255, 0.17);
     border-radius: 50%;
     margin-right: 16px;
     cursor: pointer;
@@ -87,6 +87,10 @@ export const CrewInput = styled.input.attrs({
     
     &:checked + ${CrewLabel} {
         background: var(--color-white);
+    }
+
+    &:hover + ${CrewLabel} {
+        background: rgba(255, 255, 255, 0.5);
     }
 `;
 
