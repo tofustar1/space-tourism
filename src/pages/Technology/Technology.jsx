@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NumberOfTheSlogan, Slogan } from "../../styles/General";
 import {
   TechContainer,
@@ -10,12 +10,14 @@ import {
   TechTerminology,
   TechTitle
 } from "../../styles/Technology";
-import Image from "../../assets/images/technology/image-launch-vehicle-landscape.jpg";
+import data from "../../data.json";
 
 
 const Technology = () => {
-  return (
+  const [technology, setTechnology] = useState(data.technology[0]);
+  const onClickHandler = index => setTechnology(data.technology[index]);
 
+  return (
       <>
         <TechContainer>
           <Slogan>
@@ -23,36 +25,31 @@ const Technology = () => {
             Space launch 101
           </Slogan>
         </TechContainer>
-        <TechImage src={Image} />
+        <TechImage src={require(`../../${technology.images.landscape}`)} />
         <TechContainer>
           <TechTabGroup>
-            <TechInput id="1" defaultChecked/>
-            <TechLabel htmlFor="1">
-              <TechLabelInner>
-                1
-              </TechLabelInner>
-            </TechLabel>
-            <TechInput id="2"/>
-            <TechLabel htmlFor="2">
-              <TechLabelInner>
-                2
-              </TechLabelInner>
-            </TechLabel>
-            <TechInput id="3"/>
-            <TechLabel htmlFor="3">
-              <TechLabelInner>
-                3
-              </TechLabelInner>
-            </TechLabel>
+            {
+              data.technology.map((tech, index) => (
+                  <React.Fragment key={tech.name}>
+                    <TechInput
+                      id={tech.name}
+                      defaultChecked={!index}
+                    />
+                    <TechLabel
+                      htmlFor={tech.name}
+                      onClick={() => onClickHandler(index)}
+                    >
+                      <TechLabelInner>{index + 1}</TechLabelInner>
+                    </TechLabel>
+                  </React.Fragment>
+              ))
+            }
           </TechTabGroup>
           <TechTerminology>The terminology ...</TechTerminology>
-          <TechTitle>Launch vehicle</TechTitle>
-          <TechDescription>A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!</TechDescription>
+          <TechTitle>{technology.name}</TechTitle>
+          <TechDescription>{technology.description}</TechDescription>
         </TechContainer>
       </>
-
-
-
   );
 };
 

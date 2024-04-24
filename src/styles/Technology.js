@@ -1,8 +1,11 @@
 import styled from "styled-components";
-import { Container, Description } from "./General";
+import { Container, Description, devices as device } from "./General";
 
 export const TechContainer = styled(Container)`
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 `;
 
 export const TechImage = styled.img.attrs({
@@ -11,14 +14,26 @@ export const TechImage = styled.img.attrs({
     max-width: 375px;
     margin: 0 auto;
     display: block;
+    
+    @media (${device.tablet}) {
+        max-width: 768px;
+    }
+
+    @media (${device.desktop}) {
+        float: right;
+    }
 `;
 
 export const TechTabGroup = styled.div`
     margin: 44px 0 36px;
+
+    @media (${device.tablet}) {
+        margin: 72px 0 50px;
+    }
 `;
 
 export const TechLabel = styled.label`
-    margin-right: 56px;
+    margin-right: 48px;
     position: relative;
     font-family: var(--family-2), serif;
     font-size: 16px;
@@ -39,6 +54,16 @@ export const TechLabel = styled.label`
 
     &:nth-child(6) {
         margin-right: 0;
+    }
+
+    @media (${device.tablet}) {
+        margin-right: 68px;
+        font-size: 24px;
+        
+        &::after {
+            width: 60px;
+            height: 60px;
+        }
     }
 `;
 
@@ -70,15 +95,24 @@ export const TechTerminology = styled.span`
     text-transform: uppercase;
     margin-bottom: 10px;
     display: inline-block;
+
+    @media (${device.tablet}) {
+        font-size: 16px;
+        margin-bottom: 16px;
+    }
 `;
 
 export const TechTitle = styled.h1`
     font-family: var(--family-2), serif;
-    margin-bottom: 16px;
     font-size: 24px;
+    margin-bottom: 16px;
+
+    @media (${device.tablet}) {
+        font-size: 40px;
+        margin-bottom: 24px;
+    }
 `;
 
 export const TechDescription = styled(Description)`
     max-width: 458px;
-    margin: 0 auto;
 `;
